@@ -37,13 +37,23 @@
 
         myPlot.on('plotly_click',function(Lugar){
             console.log(Lugar.points[0].data.text)
-            console.log(Lugar)
             var latitudLugar = Lugar.points[0].data.lat;
             var longitudLugar = Lugar.points[0].data.lon;
+            /*
             layout.mapbox.center.lat = latitudLugar[0];
             layout.mapbox.center.lon = longitudLugar[0];
             layout.mapbox.zoom=13;
-            Plotly.newPlot("myDiv", data, layout);
+
+            var newLayout = {
+
+                dragmode: "zoom",
+                mapbox: { style: "open-street-map", center: { lat: latitudLugar[0] , lon: longitudLugar[0] }, zoom: 10 },
+                margin: { r: 0, t: 0, b: 0, l: 0 }
+
+            }
+            */
+            
+            Plotly.relayout("myDiv", {mapbox : { style: "open-street-map", center: { lat: latitudLugar[0] , lon: longitudLugar[0] }, zoom: 10 }});
         });
 
 </script>
